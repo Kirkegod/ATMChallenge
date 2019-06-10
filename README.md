@@ -6,11 +6,11 @@ I want to unit test my code
 
 Rspec
 
-- Make sure it's set up 
-- Make sure code formatting and output is readable
+- [x] Make sure it's set up 
+- [x]  Make sure code formatting and output is readable
 
 Version Control
 
-- Gitignore
-- Commit
-- Create Remote Repository
+- [x] Gitignore 
+- [x] Commit
+- [x] Create Remote Repository
