@@ -10,7 +10,7 @@ describe Atm do
     expect(subject.funds).to eq 950
   end
 
-  let (:account) { instance_double('Account', pin_code: '1234') }
+  let (:account) { instance_double('Account', pin_code: 1234) }
 
   before do
     allow(account).to receive(:balance).and_return(100)
