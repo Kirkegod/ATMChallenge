@@ -21,6 +21,11 @@ describe Atm do
     expect(subject.withdraw(45, account)).to eq expected_output
   end
 
+  it 'rejects withdraw if account has insufficient funds' do
+    expected_output = { status: false, message: 'insufficient funds', date: Date.today }
+    expect(subject.withdraw(105, account)). to eq expected_output
+  end
+
 # it 'gives status = true after successful withdrawal' do
 #     subject.withdraw(50)
 #     expect(subject.response()).to eq(true)

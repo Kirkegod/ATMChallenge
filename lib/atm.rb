@@ -1,19 +1,18 @@
 require "date"
 
 class Atm
-    attr_accessor :funds, :status, :date, :message 
+    attr_accessor :funds #, :status, :date, :message 
 
     def initialize
         @funds = 1000
-        @status = true
+        #@status = true
     end 
 
     def withdraw(amount, account)
         case
 
         when insufficient_funds_in_account?(amount, account)
-
-            return
+                { status: false, message: 'insufficient funds', date: Date.today }
 
         else
 
