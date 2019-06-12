@@ -16,19 +16,6 @@ describe Account do
   it "is expected to have :active status on initialize" do
     expect(subject.account_status).to eq :active
   end
-
-  let(:person) { instance_double("Person", name: "Thomas") }
-  # and modify our `subject`
-  subject { described_class.new({ owner: person }) } #maybe creating an instance of our fake class
-
-  it "is expected to have an owner" do
-    expect(subject.owner).to eq person
-  end
-
-  it "is expected to raise error if no owner is set" do
-    expect { described_class.new }.to raise_error "An Account owner is required"
-  end
-
   it "deactivates account using Class method" do
     Account.deactivate(subject)
     expect(subject.account_status).to eq :deactivated
@@ -37,5 +24,18 @@ describe Account do
   it "deactivates account using Instance method" do
     subject.deactivate
     expect(subject.account_status).to eq :deactivated
+  end
+
+  let(:person) { instance_double("Person", name: "Thomas") }
+  # and modify our `subject`
+  subject { described_class.new({ owner: person }) }
+  #maybe creating an instance of our fake class
+
+  it "is expected to have an owner" do
+    expect(subject.owner).to eq person
+  end
+
+  it "is expected to raise error if no owner is set" do
+    expect { described_class.new }.to raise_error "An Account owner is required"
   end
 end
