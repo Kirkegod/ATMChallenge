@@ -22,4 +22,12 @@ class Account
   def missing_owner
     raise "An Account owner is requierd"
   end
+
+  def self.deactivate(account)
+    account.account_status = :deactivated
+  end
+
+  def deactivate
+    @account_status = :deactivated
+  end
 end
