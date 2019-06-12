@@ -13,14 +13,8 @@ class Account
     set_owner(attrs[:owner])
   end
 
-  private
-
-  def set_owner(obj)
-    obj == nil ? missing_owner : @owner = obj
-  end
-
   def missing_owner
-    raise "An Account owner is requierd"
+    raise "An Account owner is required"
   end
 
   def self.deactivate(account)
@@ -29,5 +23,11 @@ class Account
 
   def deactivate
     @account_status = :deactivated
+  end
+
+  private
+
+  def set_owner(obj)
+    obj == nil ? missing_owner : @owner = obj
   end
 end
