@@ -3,6 +3,7 @@ class Person
 
   def initialize(attrs = {})
     set_name(attrs[:name])
+    @cash = 0
   end
 
   def set_name(obj)
