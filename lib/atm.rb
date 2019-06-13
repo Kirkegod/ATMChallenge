@@ -14,17 +14,18 @@ class Atm
     case
 
     when insufficient_funds_in_account?(amount, account)
-      { status: false, message: "insufficient funds", date: Date.today }
+      { status: false, message: "Insufficient funds", date: Date.today }
     when insufficient_funds_in_atm?(amount)
-      { status: false, message: "insufficient funds in ATM", date: Date.today }
+      { status: false, message: "Insufficient funds in ATM", date: Date.today }
     when incorrect_pin?(pin_code, account.pin_code)
-      { status: false, message: "wrong pin", date: Date.today }
+      { status: false, message: "Wrong pin", date: Date.today }
     when card_expired?(account.exp_date)
-      { status: false, message: "card expired", date: Date.today }
+      { status: false, message: "Card expired", date: Date.today }
     when account_disabled?(account.account_status)
-      { status: false, message: "account disabled", date: Date.today }
+      { status: false, message: "Account disabled", date: Date.today }
     #should we define a scenario where the input is an invalid amount, meaning not divisible by 5?
-    
+    # when valid_amount?(amount)
+    #   { status: false, message: "Invalid amount", date: Date.today }
     else
       perform_transaction(amount, account)
     end
@@ -51,6 +52,10 @@ class Atm
   def card_expired?(exp_date)
     Date.strptime(exp_date, "%m/%y") < Date.today
   end
+
+  # def valid_amount?(amount)
+  #   amount % 5 == 0
+  # end
 
   def perform_transaction(amount, account)
     @funds -= amount

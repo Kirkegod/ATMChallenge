@@ -6,8 +6,8 @@ class Person
 
   def initialize(attrs = {})
     set_name(attrs[:name])
-    set_cash(attrs[:cash])
     @cash = 0
+    @account = nil
   end
 
   def set_name(obj)
