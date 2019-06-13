@@ -48,7 +48,15 @@ class Person
     raise 'An ATM is required'
   end
 
-  def deposit(obj)
+  def missing_account
+    
+    @account = nil
+    
+    raise "No account present"
+
+  end
+
+  def deposit(amount)
     @account.nil? ? missing_account : deposit_funds(amount)
   end
 
