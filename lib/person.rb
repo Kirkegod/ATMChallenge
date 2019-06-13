@@ -8,7 +8,6 @@ class Person
     set_name(attrs[:name])
     set_cash(attrs[:cash])
     @cash = 0
-    @account = nil
   end
 
   def set_name(obj)
@@ -48,12 +47,9 @@ class Person
     raise 'An ATM is required'
   end
 
-  def missing_account
-    
-    @account = nil
-    
+  def missing_account    
+    @account = nil 
     raise "No account present"
-
   end
 
   def deposit(amount)

@@ -26,4 +26,4 @@ Withdrawal can be cleared only if:
 - [x] Card status must be active (Not report stolen or lost)
 - [x] The person attempting the withdrawal has sufficient funds on his account
 - [x] There are only $5, $10 and $20 bills in the ATM. Withdrawals for amounts not divisible by 5 must be rejected.
-- [] Upon a successful withdrawal the system should return a receipt with information about the date, amount and bills that was dispatched. (The receipt should be presented in the form of a Hash.
+- [x] Upon a successful withdrawal the system should return a receipt with information about the date, amount and bills that was dispatched. (The receipt should be presented in the form of a Hash.
