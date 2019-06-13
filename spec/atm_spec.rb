@@ -60,4 +60,10 @@ describe Atm do
     expected_output = { status: false, message: "Invalid amount", date: Date.today }
     expect(subject.withdraw(18, 1234, account)).to eq expected_output
   end
+
+  it "atm should decrease all bills with 1 after withdrawal of 35" do
+    expected_output = subject.atm_bills.zip([1, 1, 1]).map { |x, y| x - y }
+    subject.withdraw(35, 1234, account)
+    expect(subject.atm_bills).to eq expected_output
+  end
 end

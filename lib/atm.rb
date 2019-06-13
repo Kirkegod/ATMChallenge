@@ -69,6 +69,7 @@ class Atm
     denominations.each do |bill|
       while amount - bill >= 0
         amount -= bill
+        atm_bills[denominations.index(bill)] -= 1
         bills << bill
       end
     end

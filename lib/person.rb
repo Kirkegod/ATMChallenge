@@ -11,7 +11,7 @@ class Person
   end
 
   def set_name(obj)
-    obj == nil ? missing_name : @name = obj
+    obj == nil ? missing_name : @name = obj.to_s
   end
 
   def set_cash(obj)
@@ -44,11 +44,11 @@ class Person
   end
 
   def missing_atm
-    raise 'An ATM is required'
+    raise "An ATM is required"
   end
 
-  def missing_account    
-    @account = nil 
+  def missing_account
+    @account = nil
     raise "No account present"
   end
 
