@@ -1,7 +1,7 @@
 require "date"
 
 class Account
-  attr_accessor :balance, :account_status, :exp_date, :pin_code
+  attr_accessor :balance, :account_status, :exp_date, :pin_code, :owner
 
   STANDARD_VALIDITY_YRS = 5 #why not instance or class variable? It crashes.
 
