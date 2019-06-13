@@ -1,4 +1,6 @@
 require "date"
+require "./lib/person.rb"
+require "./lib/atm.rb"
 
 class Account
   attr_accessor :balance, :account_status, :exp_date, :pin_code, :owner
@@ -6,7 +8,7 @@ class Account
   STANDARD_VALIDITY_YRS = 5 #why not instance or class variable? It crashes.
 
   def initialize(attrs = {})
-    @balance = 2000
+    @balance = 0
     @account_status = :active
     @exp_date = Date.today.next_year(STANDARD_VALIDITY_YRS).strftime("%m/%y")
     @pin_code = rand(1000..9999)

@@ -1,4 +1,5 @@
 require "./lib/account.rb"
+require "./lib/atm.rb"
 
 class Person
   attr_accessor :name, :cash, :account
@@ -26,12 +27,33 @@ class Person
     @account = Account.new(owner: self)
   end
 
+  def withdraw(args = {})
+    @account == nil ? missing_account : withdraw_funds(args)
+  end
+
+  def withdraw_funds(args)
+    args[:atm] == nil ? missing_atm : atm = args[:atm]
+    account = @account
+    amount = args[:amount]
+    pin = args[:pin]
+    response = atm.withdraw(amount, pin, account)
+    response[:status] == true ? increase_cash(response) : response
+  end
+
+  def increase_cash(response)
+    @cash += response[:amount]
+  end
+
+  def missing_atm
+    raise 'An ATM is required'
+  end
+
   def deposit(obj)
-    if (@account != nil)
-      @cash += obj
-      true
-    else
-      raise "No account present"
-    end
+    @account.nil? ? missing_account : deposit_funds(amount)
+  end
+
+  def deposit_funds(amount)
+    @cash -= amount
+    @account.balance += amount
   end
 end
