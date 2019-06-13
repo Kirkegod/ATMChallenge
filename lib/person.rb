@@ -57,7 +57,13 @@ class Person
   end
 
   def deposit_funds(amount)
-    @cash -= amount
-    @account.balance += amount
+    #We should only be able to make a deposit if we have that cash
+    #available, otherwise it will go to negative cash
+    # if @cash >= amount
+      @cash -= amount
+      @account.balance += amount
+    # else
+    #   puts 'Not enough Cash'
+    # end
   end
 end

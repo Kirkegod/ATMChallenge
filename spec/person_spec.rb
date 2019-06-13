@@ -33,6 +33,8 @@ describe Person do
 
   describe "can manage funds if an account been created" do
     let(:atm) { Atm.new }
+    #person should only be able to deposit funds if available in cash
+    #let(:person) {Person.new(cash: 100)}
     before { subject.create_account }
     it "can deposit funds" do
       expect(subject.deposit(100)).to be_truthy
