@@ -2,7 +2,6 @@ require './lib/account.rb'
 
 class Person
   attr_accessor :name, :cash, :account
-
   def initialize(attrs = {})
     set_name(attrs[:name])
     set_cash(attrs[:cash])
@@ -26,5 +25,9 @@ class Person
     @account = Account.new(owner: self)
   end
 
+  def deposit(obj)
+    @cash += obj
+    
+  end
 
 end
