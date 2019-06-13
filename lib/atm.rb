@@ -21,6 +21,8 @@ class Atm
       { status: false, message: "card expired", date: Date.today }
     when account_disabled?(account.account_status)
       { status: false, message: "account disabled", date: Date.today }
+    #should we define a scenario where the input is an invalid amount, meaning not divisible by 5?
+    
     else
       perform_transaction(amount, account)
     end
