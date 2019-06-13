@@ -1,7 +1,8 @@
-require './lib/account.rb'
+require "./lib/account.rb"
 
 class Person
   attr_accessor :name, :cash, :account
+
   def initialize(attrs = {})
     set_name(attrs[:name])
     set_cash(attrs[:cash])
@@ -26,8 +27,11 @@ class Person
   end
 
   def deposit(obj)
-    @cash += obj
-    
+    if (@account != nil)
+      @cash += obj
+      true
+    else
+      raise "No account present"
+    end
   end
-
 end
