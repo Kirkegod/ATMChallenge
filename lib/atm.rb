@@ -23,9 +23,9 @@ class Atm
       { status: false, message: "Card expired", date: Date.today }
     when account_disabled?(account.account_status)
       { status: false, message: "Account disabled", date: Date.today }
-    #should we define a scenario where the input is an invalid amount, meaning not divisible by 5?
-    # when valid_amount?(amount)
-    #   { status: false, message: "Invalid amount", date: Date.today }
+      #should we define a scenario where the input is an invalid amount, meaning not divisible by 5?
+    when invalid_amount?(amount)
+      { status: false, message: "Invalid amount", date: Date.today }
     else
       perform_transaction(amount, account)
     end
@@ -53,9 +53,9 @@ class Atm
     Date.strptime(exp_date, "%m/%y") < Date.today
   end
 
-  # def valid_amount?(amount)
-  #   amount % 5 == 0
-  # end
+  def invalid_amount?(amount)
+    amount % 5 != 0
+  end
 
   def perform_transaction(amount, account)
     @funds -= amount
