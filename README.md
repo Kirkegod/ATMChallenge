@@ -35,6 +35,12 @@ Instruction:
 
 To interact with the ATM program open IRB or Pry and follow these steps:
 
+- First lets open Pry or IRB and load our program
+
+```
+load './lib/atm.rb'
+```
+
 - You can start by creating an ATM to interact with
 
 ```
@@ -52,7 +58,7 @@ This will create a Person instance named Alfred, still with no account, and no c
 - For Alfred to interact with the ATM he will need to have an account, so let's got to the bank and create an account and have him be it's owner
 
 ```
-newAccount = Account.new(owner: newPerson)
+newPerson.create_account
 ```
 
 This will create a new account for Alfred with an active status, with a 5 year expiry date a pin code, and, sadly, 0 balance, we'll take care of that in a moment.
