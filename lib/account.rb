@@ -5,7 +5,7 @@ require "./lib/atm.rb"
 class Account
   attr_accessor :balance, :account_status, :exp_date, :pin_code, :owner
 
-  STANDARD_VALIDITY_YRS = 5 #why not instance or class variable? It crashes.
+  STANDARD_VALIDITY_YRS = 5
 
   def initialize(attrs = {})
     @balance = 0

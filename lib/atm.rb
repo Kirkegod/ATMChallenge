@@ -6,7 +6,7 @@ class Atm
   attr_accessor :funds, :atm_bills
 
   def initialize
-    @atm_bills = [25, 30, 40] #1000
+    @atm_bills = [25, 30, 40] # bills sums up to 1000.
     @funds = @atm_bills.zip([20, 10, 5]).map { |x, y| x * y }.reduce(0, :+)
   end
 
@@ -23,7 +23,6 @@ class Atm
       { status: false, message: "Card expired", date: Date.today }
     when account_disabled?(account.account_status)
       { status: false, message: "Account disabled", date: Date.today }
-      #should we define a scenario where the input is an invalid amount, meaning not divisible by 5?
     when invalid_amount?(amount)
       { status: false, message: "Invalid amount", date: Date.today }
     else
