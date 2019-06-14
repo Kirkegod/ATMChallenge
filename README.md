@@ -29,7 +29,7 @@ This will create and ATM instance with 1000$ available in
 # Create a named ATM user.
 newPerson = Person.new(name: 'Alfred')
 
-# Give the user an a banc account.
+# Give the user an a bank account.
 newPerson.create_account
 ```
 The banc account will:
@@ -48,7 +48,7 @@ newPerson.increase_cash(amount: 2000)
 
 Now let's put all this cash in our account because, let's face it, streets ain't safe. This made our account balance to go up to 2000$, and, obviously, our cash to 0.
 ```
-# Deposit money on banc account.
+# Deposit money on bank account.
 newPerson.deposit(2000)
 ```
 
@@ -56,7 +56,7 @@ It's good to have our money safe in our account, but we also need some pocket mo
 
 
 ```
-# widraw arguments: (Amount to withdraw, PIN, person.account).
+# widraw arguments: (Amount to withdraw, PIN, ATM).
 newPerson.withdraw(amount:25, pin:9863, atm: newATM)
 ```
 
