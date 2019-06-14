@@ -52,7 +52,7 @@ Now let's put all this cash in our account because, let's face it, streets ain't
 newPerson.perform_deposit(2000)
 ```
 
-It's good to have our money safe in our account, but we also need some pocket money. So let's withdraw some walk around cash. :+1: Arguments below:
+It's good to have our money safe in our account, but we also need some pocket money. So let's withdraw some walk around cash. :+1:
 
 
 ```
