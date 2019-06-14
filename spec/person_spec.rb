@@ -60,6 +60,11 @@ describe Person do
       expect(subject.account.balance).to be 0
       expect(subject.cash).to be 100
     end
+    it "deposit only possible when cash available" do
+      subject.cash = 99
+      subject.deposit(100)
+      expected_output = { status: false, message: "Insuficient cash", date: Date.today }
+    end
   end
   describe "can not manage funds if no account been created" do
     it 'can\'t deposit funds' do
