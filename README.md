@@ -49,7 +49,7 @@ newPerson.increase_cash(amount: 2000)
 Now let's put all this cash in our account because, let's face it, streets ain't safe. This made our account balance to go up to 2000$, and, obviously, our cash to 0.
 ```
 # Deposit money on banc account.
-newPerson.perform_deposit(2000)
+newPerson.deposit(2000)
 ```
 
 It's good to have our money safe in our account, but we also need some pocket money. So let's withdraw some walk around cash. :+1:
@@ -57,7 +57,7 @@ It's good to have our money safe in our account, but we also need some pocket mo
 
 ```
 # widraw arguments: (Amount to withdraw, PIN, person.account).
-atm.withdraw(25, 9863, newPerson.account)
+newPerson.withdraw(amount:25, pin:9863, atm: newATM)
 ```
 
 ______________________________________

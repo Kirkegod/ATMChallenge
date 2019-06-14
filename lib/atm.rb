@@ -27,6 +27,7 @@ class Atm
       { status: false, message: "Invalid amount", date: Date.today }
     else
       perform_transaction(amount, account)
+      #{ status: true, message: "success", date: Date.today, amount: amount, bills: add_bills(amount) }
     end
   end
 
