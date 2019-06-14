@@ -56,14 +56,25 @@ class Person
     @account.nil? ? missing_account : deposit_funds(amount)
   end
 
+  def insuficient_cash?(amount)
+    amount > @cash
+  end
+
+  def perform_deposit(amount)
+    @cash -= amount
+    @account.balance += amount
+  end
+
   def deposit_funds(amount)
     #We should only be able to make a deposit if we have that cash
     #available, otherwise it will go to negative cash
-    # if @cash >= amount
-      @cash -= amount
-      @account.balance += amount
-    # else
-    #   puts 'Not enough Cash'
-    # end
+    case
+    when insuficient_cash?(amount)
+      { status: false, message: "Insufficient cash", date: Date.today }
+    else
+      perform_deposit(amount)
+    end
+
+      
   end
 end
