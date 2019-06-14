@@ -1,6 +1,6 @@
 
 ### ATM Challenge ###
-Athors: Pedro & Camilla 
+Authors: Pedro & Camilla 
 
 ```
 As a programmer
@@ -13,9 +13,10 @@ I want to unit test my code
 
 To interact with the ATM program open IRB or Pry and follow these steps:
 
-
-
 ```
+# Load program in Pry or IRB. 
+load './lib/atm.rb'
+
 # Create an ATM to interact with.
 newATM = Atm.new
 ```
@@ -29,7 +30,7 @@ This will create and ATM instance with 1000$ available in
 newPerson = Person.new(name: 'Alfred')
 
 # Give the user an a banc account.
-newAccount = Account.new(owner: newPerson)
+newPerson.create_account
 ```
 The banc account will:
 - be set to active, 
