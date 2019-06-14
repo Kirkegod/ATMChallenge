@@ -14,6 +14,7 @@ class Atm
     case
 
     when insufficient_funds_in_account?(amount, account)
+      # print_receipt (status: false, message: "Insufficient funds")
       { status: false, message: "Insufficient funds", date: Date.today }
     when insufficient_funds_in_atm?(amount)
       { status: false, message: "Insufficient funds in ATM", date: Date.today }
@@ -27,11 +28,18 @@ class Atm
       { status: false, message: "Invalid amount", date: Date.today }
     else
       perform_transaction(amount, account)
-      #{ status: true, message: "success", date: Date.today, amount: amount, bills: add_bills(amount) }
+      bills = add_bills(amount)
+      print_receipt(amount, account, bills)
+      { status: true, message: "success", date: Date.today, amount: amount, bills: bills }
     end
   end
 
   private
+
+  def print_receipt(amount, account, bills)
+    printf("status: true, message: success, date %s, amount: %s, bills: %s", Date.today, amount,
+           bills)
+  end
 
   def insufficient_funds_in_account?(amount, account)
     amount > account.balance
@@ -60,7 +68,7 @@ class Atm
   def perform_transaction(amount, account)
     @funds -= amount
     account.balance = account.balance - amount
-    { status: true, message: "success", date: Date.today, amount: amount, bills: add_bills(amount) }
+    #{ status: true, message: "success", date: Date.today, amount: amount, bills: add_bills(amount) }
   end
 
   def add_bills(amount)
