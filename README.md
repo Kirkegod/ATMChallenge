@@ -2,10 +2,56 @@
 ### ATM Challenge ###
 Authors: Pedro & Camilla 
 
+## THE CHALLENGE
+Our client is a financial institution that wants to allow its customers to withdraw funds from their accounts using an Automatic Teller Machine (ATM). They have turned to us for a prototype of a system with limited functionality. Our job is to write a simple Ruby program that can be run in the Interactive Ruby Shell (IRB).
+
+#User stories
+
 ```
-As a programmer
-In order to work in a test driven way
-I want to unit test my code
+As a bank
+In order to allow my customers to withdraw funds
+I need to have an ATM available
+```
+```
+As a bank
+In order to allow my customers to withraw funds
+My ATM needs to have funds available
+```
+```
+As a User
+In order to interact with the ATM
+I need to have an active account
+```
+```
+As a User
+In order to interact with the ATM
+I need to have an account PIN
+```
+```
+As a User
+In order to interact with the ATM
+I need to have an account within the expiry date
+```
+```
+As a User
+In order to withdraw funds
+I need to have balance in my account
+```
+
+```
+As a User       
+In order to make an withdrawal      
+The ATM needs to have funds
+```
+```
+As a User
+In order have balance in my account
+I need to be able to make a deposit
+```
+```
+As a User
+In order to make a deposit
+I need to have available cash
 ```
 
 
@@ -59,8 +105,32 @@ It's good to have our money safe in our account, but we also need some pocket mo
 # widraw arguments: (Amount to withdraw, PIN, ATM).
 newPerson.withdraw(amount:25, pin:9863, atm: newATM)
 ```
+When the withdrawal is done, you'll receive a receipt and you can see the specific bills you received
 
 ______________________________________
+
+At any time we can all out our instances
+```
+newATM
+```
+```
+newPerson
+```
+And we can see how many bills and amount our ATM still has, and we can see how much cash and ballance our person has
+
+
+#The Sad Path
+- You won't be able to create a Person without a name
+- You won't be able to make a deposit without cash available
+- You won't be able to make a withrawal without a valid account, with a PIN and expiry date
+- You won't be able to make a withdrawal if there is no ATM
+- You won't be able to make a withdrawal if you don't have an account
+- You won't be able to make a withdrawal if you don't have enough balance
+- You won't be able to make a withdrawal if the ATM doesn't have enough funds
+- You won't be able to make a withdrawal if you request an amount that is not divisable by 5
+
+#
+#
 
 ## Rspec ##
 
